@@ -15,8 +15,8 @@ function squareOfStars(input){
 
        result += "\n";
     }
-    let index = result.lastIndexOf("\n");
-    console.log(result.replace(index, ""));
+   
+    console.log(result);
 }
 
-squareOfStars(2);
+squareOfStars(5);
