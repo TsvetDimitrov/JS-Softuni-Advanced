@@ -56,3 +56,4 @@ function cookingByNumbers(number, ...operations) {
     }
 }
 
+cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop');

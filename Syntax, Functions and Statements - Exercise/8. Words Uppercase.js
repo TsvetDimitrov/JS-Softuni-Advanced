@@ -9,3 +9,6 @@ function wordsUppercase(string){
     console.log(result);
 
 }
+
+
+wordsUppercase("Hello, softuni!");
