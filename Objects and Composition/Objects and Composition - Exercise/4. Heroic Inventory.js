@@ -9,13 +9,25 @@
 // The output is a JSON representation of the data for all the heroes you’ve stored. The data must be an array of all the heroes. 
 // Check the examples for more info.
 
+function heroicInventory(input) {
 
+    let result = [];
+    while (input.length) {
+        let hero = input.shift("");
 
+        let [name, level, itemsString] = hero.split(" / ");
+        level = Number(level);
+        const items = itemsString ? itemsString.split(", ") : [];
 
+        result.push({name, level, items});
+    }
 
-
-
-function heroicInventory(){
-
-
+    return  JSON.stringify(result);
 }
+
+
+
+console.log(heroicInventory(['Isacc / 25 / Apple, GravityGun',
+    'Derek / 12 / BarrelVest, DestructionSword',
+    'Hes / 1 / Desolator, Sentinel, Antara']
+));
