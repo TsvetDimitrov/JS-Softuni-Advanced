@@ -20,7 +20,7 @@ function solve() {
 
     const canFight = (state) => ({
         fight: () => {
-            console.log(`${state.fighter} slashes at the foe!`);
+            console.log(`${state.name} slashes at the foe!`);
             state.stamina--;
         }
     })
