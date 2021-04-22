@@ -1,9 +1,23 @@
 function addItem() {
-    let items = document.getElementById('items');
-    let newItem = document.getElementById('newItemText').value;
-    let toAdd = document.createElement('li');
-    toAdd.textContent = newItem;
-    items.appendChild(toAdd);
-    //Optional
-    document.getElementById('newItemText').value = '';
+    const input = document.getElementById('newItemText'); //in judge works with id:newText!
+    const liElement = createElement('li', input.value);
+
+    const deleteBtn = createElement('a', '[Delete]');
+    deleteBtn.href = '#';
+    deleteBtn.addEventListener('click', (ev) => {
+        ev.target.parentNode.remove();
+    });
+
+    liElement.appendChild(deleteBtn);
+
+
+    document.getElementById('items').appendChild(liElement);
+    input.value = '';
+
+
+    function createElement(type, content){
+        const element = document.createElement(type);
+        element.textContent = content;
+        return element;
+    }
 }
