@@ -24,3 +24,25 @@ function create(words) {
       }
    }
 }
+
+
+//Another solution
+
+
+function create(words){
+      let div = document.createElement('div');
+      let pEl = document.createElement('p');
+      div.appendChild(pEl);
+      pEl.textContent = word[0];
+      pEl.style.display = 'none';
+
+      div.addEventListener('click', reveal)
+      document.getElementById('content').appendChild(div);
+}
+
+
+function reveal(ev){
+
+      ev.target.querySelector('p').style.display = '';
+
+}
