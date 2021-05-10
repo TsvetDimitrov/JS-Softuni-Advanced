@@ -1,3 +1,4 @@
+
 class Parking {
     constructor(capacity) {
         this.capacity = capacity;
@@ -62,4 +63,3 @@ console.log(parking.getStatistics());
 
 console.log(parking.pay("TX3691CA"));
 console.log(parking.removeCar("TX3691CA"));
-
