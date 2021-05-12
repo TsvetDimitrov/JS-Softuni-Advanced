@@ -48,7 +48,6 @@ function pressHouse() {
                 return result.join('\n');
             }
         }
-
     }
 
 
