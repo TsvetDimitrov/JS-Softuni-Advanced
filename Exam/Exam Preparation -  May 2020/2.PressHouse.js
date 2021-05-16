@@ -7,8 +7,7 @@ function pressHouse() {
         }
 
         toString() {
-            return [`Title: ${this.title}`,
-                    `Content: ${this.content}`];
+            return [`Title: ${this.title}`, `Content: ${this.content}`].join("\n");
         }
     }
 
@@ -18,7 +17,8 @@ function pressHouse() {
 
             if (content.length >= 150) {
                 throw new Error("Short reports content should be less then 150 symbols.");
-            } else if (originalResearch.hasOwnProperty('title') == false || originalResearch.hasOwnProperty('content')) {
+            }
+            if (originalResearch.hasOwnProperty('title') == false || originalResearch.hasOwnProperty('author') == false) {
                 throw new Error("The original research should have author and title.");
             }
             super(title, content);
@@ -45,8 +45,9 @@ function pressHouse() {
                 this.comments.forEach((c) => {
                     result.push(c);
                 });
-                return result.join('\n');
+                
             }
+            return result.join('\n');
         }
     }
 
@@ -59,7 +60,7 @@ function pressHouse() {
         }
 
         addClient(clientName, orderDescription) {
-            if (this.clients.find(c => c.clientName == clientName) !== undefined) {
+            if (this.clients.find(c => c.clientName === clientName) !== undefined) {
                 throw new Error("This client has already ordered this review.");
             } else {
                 this.clients.push({
@@ -72,18 +73,19 @@ function pressHouse() {
 
         toString() {
             const result = [
-                super.toString(),
-                `Book: ${this.book.name}`
-            ];
+                super.toString()];
+                result.push(`Book: ${this.book.name}`);
+
 
 
             if (this.clients.length > 0) {
-                result.push(`Comments:`);
+                result.push(`Orders:`);
                 this.clients.forEach((c) => {
-                    result.push(`${c.clientName} - ${c.orderDescription}.`);
+                    result.push(`${c.clientName} - ${c.orderDescription}`);
                 });
-                return result.join('\n');
+                
             }
+            return result.join('\n');
         }
     }
 
