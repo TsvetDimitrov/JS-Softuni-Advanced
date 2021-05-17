@@ -1,10 +1,10 @@
-const pizzUni = require("./pizza");
+const pizzUni = require("./03.pizza");
 // const expect = require('chai').expect;
-const { describe } = require('mocha');
+// const { describe } = require('mocha');
 const { assert } = require('chai');
 
 
-
+//Solution using assert.
 describe('test', () => {
     it('Make an order', () => {
         let pizza0 = { orderedPizza: 'pizza', orderedDrink: 'drink' };
