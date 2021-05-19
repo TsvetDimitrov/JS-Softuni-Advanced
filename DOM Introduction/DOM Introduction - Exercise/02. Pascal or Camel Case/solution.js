@@ -7,17 +7,17 @@ function solve() {
   let selector = {
     "Camel Case"(str) {
       str = str.split(/\s/g).reduce((acc, el, loc) => {
-        if(loc === 0){
-          acc+= el.toLowerCase();
-        }else{
-          acc+= el[0].toUpperCase();
-          acc+= el.slice(1, el.length).toLowerCase();
+        if (loc === 0) {
+          acc += el.toLowerCase();
+        } else {
+          acc += el[0].toUpperCase();
+          acc += el.slice(1, el.length).toLowerCase();
         }
         return acc;
       }, "");
       return str;
     },
-    "Pascal Case"(str){
+    "Pascal Case"(str) {
       str = str.split(/\s/g).reduce((acc, el) => {
         acc += el[0].toUpperCase();
         acc += el.slice(1, el.length).toLowerCase();
@@ -29,9 +29,9 @@ function solve() {
   };
 
 
-  if(selector.hasOwnProperty(currentCase)){
+  if (selector.hasOwnProperty(currentCase)) {
     result.innerText = selector[currentCase](input);
-  }else{
+  } else {
     result.innerText = "Error!";
   }
 }

@@ -11,11 +11,11 @@ function calculator() {
         },
         add: () => {
             resultEl.value = Number(firstEl.value) + Number(secondEl.value);
-            
+
         },
         subtract: () => {
             resultEl.value = Number(firstEl.value) - Number(secondEl.value);
-            
+
         }
     }
 }

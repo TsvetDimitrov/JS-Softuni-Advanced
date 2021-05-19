@@ -9,25 +9,25 @@ function attachEventsListeners() {
     let minutes = document.getElementById('minutes');
     let seconds = document.getElementById('seconds');
 
-    function onClickDays(){
+    function onClickDays() {
         hours.value = Number(days.value) * 24;
         minutes.value = Number(hours.value) * 60;
         seconds.value = Number(minutes.value) * 60;
 
     }
-    function onClickHours(){
+    function onClickHours() {
         days.value = Number(hours.value) / 24;
         minutes.value = Number(hours.value) * 60;
         seconds.value = Number(minutes.value) * 60;
 
     }
-    function onClickMinutes(){
+    function onClickMinutes() {
         hours.value = Number(minutes.value) / 60;
         days.value = Number(hours.value) / 24;
         seconds.value = Number(minutes.value) * 60;
 
     }
-    function onClickSeconds(){
+    function onClickSeconds() {
         minutes.value = Number(seconds.value) / 60;
         hours.value = Number(minutes.value) / 60;
         days.value = Number(hours.value) / 24;

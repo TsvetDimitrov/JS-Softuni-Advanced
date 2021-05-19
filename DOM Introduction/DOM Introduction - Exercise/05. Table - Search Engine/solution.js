@@ -6,13 +6,13 @@ function solve() {
    function onClick() {
       const input = document.querySelector('#searchField').value.toLowerCase();
 
-      for(let row of rows){
-         if(row.textContent.toLowerCase().includes(input)){
+      for (let row of rows) {
+         if (row.textContent.toLowerCase().includes(input)) {
             row.setAttribute('class', 'select');
-         }else{
+         } else {
             row.removeAttribute('class');
          }
       }
 
-   }  
+   }
 }

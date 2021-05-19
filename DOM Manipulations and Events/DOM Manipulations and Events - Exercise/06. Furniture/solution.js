@@ -5,8 +5,8 @@ function solve() {
   const body = document.querySelector('tbody');
   buttons[0].addEventListener('click', function (e) {
     const arr = JSON.parse(textArea[0].value);
-    
-    for(let el of arr){
+
+    for (let el of arr) {
       const row = document.createElement('tr');
 
       const tdImage = document.createElement('td');
@@ -57,7 +57,7 @@ function solve() {
       decFactorSum: 0
     }
 
-    for(let row of furniture){
+    for (let row of furniture) {
       let cells = row.children;
       console.log(cells);
       const name = cells[1].children[0].textContent;

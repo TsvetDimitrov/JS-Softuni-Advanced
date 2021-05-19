@@ -1,9 +1,6 @@
 function lockedProfile() {
     document.getElementById('main').addEventListener('click', show);
 
-
-
-
     function show(e) {
         if (e.target.tagName === 'BUTTON') {
             const profile = e.target.parentNode;
@@ -15,7 +12,7 @@ function lockedProfile() {
             }
 
             let div = profile.querySelector('div');
-           // let isVisible = div.style.display === 'block';
+            let isVisible = div.style.display === 'block';
             div.style.display = isVisible ? "none" : "block";
             e.target.textContent = !isVisible ? "Hide it" : "Show more"
         }

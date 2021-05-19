@@ -6,7 +6,7 @@
 function wordsUppercase(string){
 
     result = string.toUpperCase().match(/\w+/g).join(", ");
-    console.log(result);
+    return result;
 
 }
 

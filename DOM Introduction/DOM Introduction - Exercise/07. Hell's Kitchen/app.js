@@ -4,7 +4,6 @@ function solve() {
    const bestRestaurantP = document.querySelector('#bestRestaurant>p');
    const workersP = document.querySelector('#workers>p');
 
-
    function onClick() {
       let arr = JSON.parse(input.value);
       let restaurants = {};
@@ -48,20 +47,18 @@ function solve() {
                bestSalary: restaurants[name].bestSalary,
                averageSalary: restaurants[name].averageSalary
             }
-
-
             bestRestaurantSalary = restaurants[name].averageSalary;
          }
       }
 
       bestRestaurantP.textContent = `Name: ${best.name} Average Salary: ${best.averageSalary.
-      toFixed(2)} Best Salary: ${best.bestSalary.toFixed(2)}`
+         toFixed(2)} Best Salary: ${best.bestSalary.toFixed(2)}`
 
       let workersResult = [];
 
       best.workers.forEach(worker => {
          workersResult.push(`Name: ${worker.name} With Salary: ${worker.salary}`)
-         
+
       });
 
       workersP.textContent = workersResult.join(" ");

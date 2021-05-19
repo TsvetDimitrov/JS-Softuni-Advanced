@@ -6,7 +6,6 @@
 // Your function needs to return itself with an updated context.
 
 
-
 function add(a) {
     let sum = 0;
     sum += a;
@@ -17,7 +16,6 @@ function add(a) {
     }
     calc.toString = () => sum;
     return calc;
-0
 }
 
 console.log(add(1).toString());

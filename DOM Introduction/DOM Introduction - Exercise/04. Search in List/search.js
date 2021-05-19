@@ -5,11 +5,11 @@ function search() {
 
    let sum = 0;
    for (const li of listItems) {
-      if((li.textContent).toLocaleLowerCase().includes(input.toLocaleLowerCase())){
+      if ((li.textContent).toLocaleLowerCase().includes(input.toLocaleLowerCase())) {
          li.style.fontWeight = 'bold';
          li.style.textDecoration = 'underline';
          sum++
-      }else{
+      } else {
          li.style.fontWeight = '';
          li.style.textDecoration = '';
       }

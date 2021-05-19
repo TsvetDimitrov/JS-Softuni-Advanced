@@ -7,26 +7,25 @@ function encodeAndDecodeMessages() {
             text: textAreas[0],
             button: buttons[0],
             func: (char) => {
-                return String.fromCharCode(char.charCodeAt(0)+1);
+                return String.fromCharCode(char.charCodeAt(0) + 1);
             }
         },
         decode: {
             text: textAreas[1],
             button: buttons[1],
             func: (char) => {
-                return String.fromCharCode(char.charCodeAt(0)-1);
+                return String.fromCharCode(char.charCodeAt(0) - 1);
             }
         }
     };
-    document.getElementById('main').addEventListener('click', function(e) {
-        if(e.target.tagName !== 'BUTTON'){
+    document.getElementById('main').addEventListener('click', function (e) {
+        if (e.target.tagName !== 'BUTTON') {
             return;
         }
 
         const type = e.target.textContent.toLowerCase().trim().includes('encode') ? 'encode' : 'decode';
 
         const message = map[type].text.value.split('').map(map[type].func).join('');
-
 
         map.encode.text.value = '';
         map.decode.text.value = message;

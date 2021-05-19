@@ -11,13 +11,12 @@ function solve() {
     selectMenuTo.appendChild(optionBinary);
     selectMenuTo.appendChild(optionHexadecimal);
 
-
     document.getElementsByTagName('button')[0].addEventListener("click", calculate);
 
-    function calculate(){
-        if(selectMenuTo.value === 'binary'){
+    function calculate() {
+        if (selectMenuTo.value === 'binary') {
             result.value = Number(input.value).toString(2);
-        }else if(selectMenuTo.value === 'hexadecimal'){
+        } else if (selectMenuTo.value === 'hexadecimal') {
             result.value = Number(input.value).toString(16).toUpperCase();
         }
     }
