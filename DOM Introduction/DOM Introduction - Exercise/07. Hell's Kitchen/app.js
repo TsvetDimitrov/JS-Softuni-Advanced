@@ -5,6 +5,7 @@ function solve() {
    const workersP = document.querySelector('#workers>p');
 
    function onClick() {
+
       let arr = JSON.parse(input.value);
       let restaurants = {};
 
