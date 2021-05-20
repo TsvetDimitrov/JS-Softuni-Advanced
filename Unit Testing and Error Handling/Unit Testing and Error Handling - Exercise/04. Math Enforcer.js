@@ -42,7 +42,6 @@ describe('mathEnforcer', () => {
             assert.isUndefined(mathEnforcer.addFive('5'));
             assert.isUndefined(mathEnforcer.addFive(undefined));
             // assert.isNaN(mathEnforcer.addFive(Nan));
-
         });
 
         it('add properly', () => {
@@ -58,7 +57,6 @@ describe('mathEnforcer', () => {
             assert.isUndefined(mathEnforcer.sum(6, '2'));
             assert.isUndefined(mathEnforcer.sum(undefined));
             // assert.isNaN(mathEnforcer.addFive(Nan));
-
         });
 
         it('sum properly', () => {
@@ -72,7 +70,6 @@ describe('mathEnforcer', () => {
             assert.isUndefined(mathEnforcer.subtractTen('5'));
             assert.isUndefined(mathEnforcer.subtractTen(undefined));
             // assert.isNaN(mathEnforcer.addFive(Nan));
-
         });
         it('subtract properly', () => {
             assert.equal(mathEnforcer.subtractTen(0), -10);
@@ -80,8 +77,6 @@ describe('mathEnforcer', () => {
             assert.equal(mathEnforcer.subtractTen(5.5), -4.5);
             assert.equal(mathEnforcer.subtractTen(10), 0);
             assert.equal(mathEnforcer.subtractTen(20), 10);
-
-
         })
     });
 })

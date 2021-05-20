@@ -4,26 +4,26 @@
 // •	The length of the sequence is n elements
 // The input comes as two number arguments. The first element represents the number n, and the second – the number k.
 // The output is the return value of your function and should be an array of numbers.
-function lastKNumbersSequence(nTimes, kLastEl){
+// function lastKNumbersSequence(nTimes, kLastEl){
 
-    let result = [1];
+//     let result = [1];
 
-    for(let i = 1; i < nTimes; i++){
-        let startIndex = Math.max(0, i-kLastEl);
-        let curElement = result.slice(startIndex, startIndex + kLastEl).reduce((acc, el) => acc + el, 0);
-        result.push(curElement);
-    }
-    console.log(result);
+//     for(let i = 1; i < nTimes; i++){
+//         let startIndex = Math.max(0, i-kLastEl);
+//         let curElement = result.slice(startIndex, startIndex + kLastEl).reduce((acc, el) => acc + el, 0);
+//         result.push(curElement);
+//     }
+//     console.log(result);
 
-}
+// }
 
-lastKNumbersSequence(8, 2);
+
 
 
 
 // Another solution
 
-function lastKNumbersSequance2(n, k){    
+function lastKNumbersSequence2(n, k){    
     let newArr = [1];
     let sumNumbers = 0;
 
@@ -35,6 +35,9 @@ function lastKNumbersSequance2(n, k){
         newArr.push(sumNumbers);
         sumNumbers = 0;
     }
-    console.log(newArr.join(" "));
-
+    return newArr.join(" ");
 }
+
+
+
+console.log(lastKNumbersSequence2(8, 2));
