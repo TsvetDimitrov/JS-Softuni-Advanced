@@ -76,6 +76,79 @@ function solve() {
             }
         }
     });
-
 };
 
+// function solve() {
+//     const lectureNameInput = document.querySelector('input[name="lecture-name"]');
+//     const dateInput = document.querySelector('input[name="lecture-date"]');
+//     const moduleInput = document.querySelector('select[name="lecture-module"]');
+//     const button = document.querySelector('button');
+
+//     button.addEventListener('click', (e) => addModule(e));
+
+//     const trainings = document.querySelector('div[class="modules"]');
+
+
+//     function addModule(e) {
+//         e.preventDefault();
+//         if (lectureNameInput.value === '' || dateInput.value === '' || moduleInput.value.includes('Select')) {
+//             return;
+//         }
+
+//         let state = {};
+//         let lectureName = lectureNameInput.value;
+//         let date = dateInput.value;
+//         let module = moduleInput.value;
+
+//         date = date.replaceAll('-', '/');
+//         date = date.replace('T', ' - ')
+
+
+
+
+//         let li = el('li', undefined, 'flex');
+//         let h4 = el('h4', `${lectureName} - ${date}`);
+//         let btn = el('button', 'Del', 'red');
+//         li.appendChild(h4);
+//         li.appendChild(btn);
+//         let ul = undefined;
+//         let div = undefined;
+//         if (!state[moduleInput.value]) {
+//             let h3 = el('h3', `${module.toUpperCase()}-MODULE`);
+//             ul = el('ul');
+//             let lis = [];
+//              div = el('div', undefined, 'module');
+//             div.appendChild(h3);
+//             div.appendChild(ul);
+//             state[moduleInput.value] = { div, ul, lis: [] };
+//         } else {
+//             div = state[moduleInput.value].div;
+//             ul = state[moduleInput.value].ul;
+//         }
+
+//         state[moduleInput.value].lis.push({ li, date: dateInput.value });
+//         state[moduleInput.value].lis.sort((a, b) => a.date.localeCompare(b.date)).forEach(({ li }) => {
+//             ul.appendChild(li)
+//         });
+
+
+//         trainings.appendChild(div)
+
+//         lectureNameInput.value = '';
+//         dateInput.value = '';
+//     }
+
+
+
+//     function el(type, content, addClass) {
+//         let result = document.createElement(type);
+//         result.textContent = content;
+
+
+//         if (addClass) {
+//             result.className = addClass;
+//         }
+
+//         return result;
+//     }
+// };
