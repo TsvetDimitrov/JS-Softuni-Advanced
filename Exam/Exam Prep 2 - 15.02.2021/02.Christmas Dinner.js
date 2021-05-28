@@ -96,7 +96,6 @@ class ChristmasDinner{
         }
     }
 
-
     inviteGuests(name, dish){
         
         if(this.dishes.some((d) => d.recipeName === dish) == false){
