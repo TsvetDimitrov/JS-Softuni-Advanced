@@ -58,27 +58,27 @@ class ChristmasDinner {
 }
 
 
-class ChristmasDinner{
-    constructor(budget){
+class ChristmasDinner {
+    constructor(budget) {
         this.budget = budget;
         this.dishes = [];
         this.products = [];
         this.guests = {};
     }
 
-    get budget(){
+    get budget() {
         return this._budget;
     }
 
-    set budget(value){
-        if(value < 0){
+    set budget(value) {
+        if (value < 0) {
             throw new Error("The budget cannot be a negative number");
         }
         this._budget = value;
     }
 
-    shopping([product, price]){
-        if(price > this.budget){
+    shopping([product, price]) {
+        if (price > this.budget) {
             throw new Error("Not enough money to buy this product");
         }
         this.products.push(product);
@@ -86,21 +86,21 @@ class ChristmasDinner{
         return `You have successfully bought ${product}!`;
     }
 
-    recipes({recipeName, productsList}){
-        if(productsList.some((p) => this.products.includes(p)== false)){
+    recipes({ recipeName, productsList }) {
+        if (productsList.some((p) => this.products.includes(p) == false)) {
             throw new Error(`We do not have this product`);
-        }else{
-            let obj = {recipeName, productsList};
+        } else {
+            let obj = { recipeName, productsList };
             this.dishes.push(obj);
             return `${recipeName} has been successfully cooked!`;
         }
     }
 
-    inviteGuests(name, dish){
-        
-        if(this.dishes.some((d) => d.recipeName === dish) == false){
+    inviteGuests(name, dish) {
+
+        if (this.dishes.some((d) => d.recipeName === dish) == false) {
             throw new Error(`We do not have this dish`);
-        }else if(this.guests.hasOwnProperty(name)){
+        } else if (this.guests.hasOwnProperty(name)) {
             throw new Error("This guest has already been invited");
         }
         this.guests[name] = dish;
@@ -108,10 +108,10 @@ class ChristmasDinner{
         return `You have successfully invited ${name}!`;
     }
 
-    showAttendance(){
+    showAttendance() {
         let result = [];
 
-        Object.entries(this.guests).forEach(([name, dish] )=> {
+        Object.entries(this.guests).forEach(([name, dish]) => {
             let consistention = this.dishes.find((g) => g.recipeName == dish)
             result.push(`${name} will eat ${dish}, which consists of ${consistention.productsList.join(', ')}`);
         });

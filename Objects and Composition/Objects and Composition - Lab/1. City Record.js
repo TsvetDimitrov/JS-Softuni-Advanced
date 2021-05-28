@@ -4,9 +4,9 @@
 
 
 // NOTE!
-//The solution must be exact same, else judge gives 0/100!
+//The solution must be returned, else judge gives 0/100!
 
-function cityRecord(name, population, treasury){
+function cityRecord(name, population, treasury) {
     const city = {
         name: name,
         population: population,
@@ -16,6 +16,16 @@ function cityRecord(name, population, treasury){
 }
 
 console.log(cityRecord('Tortuga',
-7000,
-15000
+    7000,
+    15000
 ));
+
+//Another solutuon.
+//The property name: name is just the same as only name. 
+function cityRecord(name, population, treasury) {
+    return {
+        name,
+        population,
+        treasury
+    }
+};

@@ -29,7 +29,7 @@ function factory(library, orders) {
         result.push(composed);
     }
     return result;
-}
+} 
 
 const library = {
     print: function () {
@@ -62,3 +62,18 @@ const orders = [
 ];
 const products = factory(library, orders);
 console.log(products);
+
+
+// TEST OBJECT !!!
+
+let exampleObj = {
+    name: 'Luchiano',
+    location: {
+        coordinates: { lat: 5001, long: 4001 },
+        name: 'Sofia'
+    }
+}
+
+const { location: { coordinates } } = exampleObj;
+//prints the coordinates obj.
+console.log(coordinates);
