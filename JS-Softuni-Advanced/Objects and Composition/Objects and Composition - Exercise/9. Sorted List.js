@@ -31,7 +31,6 @@ function createSortedList() {
         }
     }
 
-
     function get(index) {
         return list[index];
     }
