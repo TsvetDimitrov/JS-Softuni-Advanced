@@ -15,15 +15,14 @@ function solve() {
             console.log(`${state.name} cast ${spell}`);
             state.mana--;
         }
-    })
-
+    });
 
     const canFight = (state) => ({
         fight: () => {
             console.log(`${state.name} slashes at the foe!`);
             state.stamina--;
         }
-    })
+    });
 
     const fighter = (name) => {
         let state = {
@@ -33,7 +32,6 @@ function solve() {
         }
         return Object.assign(state, canFight(state));
     }
-
 
     const mage = (name) => {
         let state = {

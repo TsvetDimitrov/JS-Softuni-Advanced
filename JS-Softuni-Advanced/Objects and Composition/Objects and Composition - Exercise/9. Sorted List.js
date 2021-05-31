@@ -14,9 +14,7 @@
 
 
 function createSortedList() {
-
     let list = [];
-
 
     function add(element) {
         list.push(element);
@@ -34,7 +32,6 @@ function createSortedList() {
     function get(index) {
         return list[index];
     }
-
 
     return {
         size: 0,
