@@ -16,12 +16,9 @@ function storeCatalogue(input) {
     while (input.length) {
         let [name, price] = input.shift().split(" : ");
         const firstLetter = name[0];
-
-
         if (!dictionary[firstLetter]) {
             dictionary[firstLetter] = [];
         }
-
 
         dictionary[firstLetter].push({ name, price: Number(price) });
         dictionary[firstLetter].sort((a, b) => a.name.localeCompare(b.name));
@@ -29,10 +26,9 @@ function storeCatalogue(input) {
 
     let result = [];
 
-
     Object.entries(dictionary).sort((a, b) => a[0].localeCompare(b[0])).forEach(entry => {
         let values = entry[1].sort((a, b) => a.name.localeCompare(b.name)).map(product => `  ${product.name}: ${product.price}`)
-        .join("\n");
+            .join("\n");
         let string = `${entry[0]}\n ${values}`;
         result.push(string)
     });

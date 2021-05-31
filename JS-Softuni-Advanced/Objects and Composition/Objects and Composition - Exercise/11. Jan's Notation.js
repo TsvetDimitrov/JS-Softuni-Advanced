@@ -31,7 +31,7 @@ function jansNotation(input) {
 
     if (numbers.length >= 2) {
         console.log('Error: too many operands!')
-    } else if(numbers.length != 0){
+    } else if (numbers.length != 0) {
         console.log(numbers.toString());
     }
 

@@ -45,7 +45,7 @@ function solve() {
         return Object.assign(state, canCast(state));
     }
 
-    return {mage, fighter}
+    return { mage, fighter }
 }
 
 let create = solve();

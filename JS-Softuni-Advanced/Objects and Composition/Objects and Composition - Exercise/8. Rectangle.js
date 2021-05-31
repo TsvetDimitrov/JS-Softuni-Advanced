@@ -10,12 +10,12 @@
 
 
 function rectangle(width, height, color) {
- 
+
     function capitalize(word) {
         return word[0].toUpperCase() + word.slice(1);
     }
 
-    function calcArea(){
+    function calcArea() {
         return this.width * this.height;
     }
 

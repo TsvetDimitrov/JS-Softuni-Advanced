@@ -16,4 +16,4 @@ function calorieObject(arr) {
     return result;
 }
 
-calorieObject(['Yoghurt', '48', 'Rise', '138', 'Apple', '52']);
+console.log(calorieObject(['Yoghurt', '48', 'Rise', '138', 'Apple', '52']));

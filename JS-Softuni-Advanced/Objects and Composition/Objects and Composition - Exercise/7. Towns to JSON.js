@@ -21,7 +21,7 @@ function townsToJSON(input) {
     }
     function splitLine(input) {
 
-        return input.split("|").filter(removeEmptyString).map(x=>x.trim()).map(convertIfNum);
+        return input.split("|").filter(removeEmptyString).map(x => x.trim()).map(convertIfNum);
     }
     return JSON.stringify(table.map(entry => {
         return columns.reduce((acc, curr, index) => {

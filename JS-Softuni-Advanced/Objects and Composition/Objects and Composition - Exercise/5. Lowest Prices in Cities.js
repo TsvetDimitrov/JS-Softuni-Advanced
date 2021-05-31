@@ -18,14 +18,14 @@ function lowerPricesInCities(input) {
     let log = {
 
     };
-    while(input.length){
+    while (input.length) {
         let entry = input.shift();
         let [town, product, price] = entry.split(" | ");
 
-        if(!log[product]){
-            log[product] = {town, price: Number(price)};
-        }else{
-            log[product] = log[product].price <= Number(price) ? log[product] : {town, price: Number(price)};
+        if (!log[product]) {
+            log[product] = { town, price: Number(price) };
+        } else {
+            log[product] = log[product].price <= Number(price) ? log[product] : { town, price: Number(price) };
         }
     }
 
