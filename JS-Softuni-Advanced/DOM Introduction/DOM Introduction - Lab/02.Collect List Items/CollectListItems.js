@@ -8,7 +8,7 @@ function extractText() {
 
 //Another solution:
 
-
+/*
 function extractText() {
     let listItems = document.querySelectorAll('#items li');
     let result = '';
@@ -20,3 +20,5 @@ function extractText() {
     let resultElements = document.getElementById('result');
     resultElements.textContent = result.trim();
 }
+
+*/
