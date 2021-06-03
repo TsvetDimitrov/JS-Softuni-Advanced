@@ -14,7 +14,7 @@ function search() {
          li.style.textDecoration = '';
       }
    }
-
-
    result.textContent = `${sum} matches found`;
 }
+
+
