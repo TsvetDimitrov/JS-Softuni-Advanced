@@ -1,11 +1,13 @@
 function attachEvents() {
-    document.getElementById('submit').addEventListener('click', () => {
+    document.getElementById('submit').addEventListener('click', async () => {
         const author = document.querySelector('input[name="author"]').value;
         const content = document.querySelector('input[name="content"]').value;
 
-        sendMessage({author, content});
+        await sendMessage({author, content});
         document.querySelector('input[name="author"]').value =  '';
         document.querySelector('input[name="content"]').value =  '';
+
+        getMessages()
     });
 
     document.getElementById('refresh').addEventListener('click', getMessages)
