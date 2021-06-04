@@ -92,3 +92,11 @@ form button{
     border: none;
     padding: 0.5%;
 }
+/*Added manually*/
+.cancelBtn {
+    background-color: red;
+}
+
+#editForm {
+    display: none;
+}
