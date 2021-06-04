@@ -18,8 +18,12 @@ function solve() {
       const result = cart.reduce((acc, c) => {
          acc.items.add(c.title);
          acc.total += c.price;
-         return acc;``
+         return acc;
       }, {items: new Set(), total: 0})
-      output.value += `You bought ${[...result.items].join(", ")} for ${result.total.toFixed(2)}.`;
-   });
+      output.value += `You bought ${[...result.items].join(", ")} for ${result.total.toFixed(2)}.\n`;
+      const buttons = Array.from(document.querySelectorAll('button'));
+      for (const btn of buttons) {
+         btn.disabled = true;
+      }
+   });   
 }
