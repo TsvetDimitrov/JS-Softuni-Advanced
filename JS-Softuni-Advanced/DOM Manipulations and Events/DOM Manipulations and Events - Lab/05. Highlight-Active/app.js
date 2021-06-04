@@ -4,14 +4,11 @@ function focused() {
         i.addEventListener('blur', onBlurr);
     });
 
-
-
-    function onFocus(ev){
+    function onFocus(ev) {
         ev.target.parentNode.className = 'focus'; //The judge accepts it with ...className = 'focused'!
     }
 
-
-    function onBlurr(ev){
+    function onBlurr(ev) {
         ev.target.parentNode.className = '';
     }
 }

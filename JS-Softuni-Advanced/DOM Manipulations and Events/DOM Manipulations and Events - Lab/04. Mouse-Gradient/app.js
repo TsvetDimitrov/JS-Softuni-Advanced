@@ -7,7 +7,6 @@ function attachGradientEvents() {
 
         const percent =  Math.floor(offsetX / event.target.clientWidth * 100);
 
-
        result.textContent = percent + '%';
     }
 }

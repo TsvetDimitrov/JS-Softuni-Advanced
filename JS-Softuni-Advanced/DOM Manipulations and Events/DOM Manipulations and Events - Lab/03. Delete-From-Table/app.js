@@ -4,17 +4,16 @@ function deleteByEmail() {
 
     let deleted = false;
     for (const row of tableEmails) {
-        if(row.children[1].textContent == input){
+        if (row.children[1].textContent == input) {
             row.parentNode.removeChild(row);
 
             document.getElementById('result').textContent = 'Deleted.';
             deleted = true;
         }
-        
+
     }
 
-
-    if(!deleted){
+    if (!deleted) {
         document.getElementById('result').textContent = 'Not found.';
     }
 }

@@ -10,12 +10,10 @@ function addItem() {
 
     liElement.appendChild(deleteBtn);
 
-
     document.getElementById('items').appendChild(liElement);
     input.value = '';
 
-
-    function createElement(type, content){
+    function createElement(type, content) {
         const element = document.createElement(type);
         element.textContent = content;
         return element;
