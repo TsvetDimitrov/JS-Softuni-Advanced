@@ -5,7 +5,6 @@ function solve() {
   const body = document.querySelector('tbody');
   buttons[0].addEventListener('click', function (e) {
     const arr = JSON.parse(textArea[0].value);
-
     for (let el of arr) {
       const row = document.createElement('tr');
 
@@ -59,7 +58,6 @@ function solve() {
 
     for (let row of furniture) {
       let cells = row.children;
-      console.log(cells);
       const name = cells[1].children[0].textContent;
       result.bought.push(name);
 
@@ -69,7 +67,6 @@ function solve() {
       const factor = cells[3].children[0].textContent;
       result.decFactorSum += Number(factor);
     }
-
 
     textArea[1].value = `Bought furniture: ${result.bought.join(", ")}\nTotal price: ${result.totalPrice.toFixed(2)}\nAverage decoration factor: ${(result.decFactorSum / furniture.length)}`
 
