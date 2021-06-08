@@ -7,8 +7,29 @@
 // Check the examples below to see how your code will be executed
 // Output
 // Whenever you receive the command print, the output should be the printed on the console.
-function solution(){
+function solution() {
     let str = '';
+
+
+    function append(strToAppend) {
+        str += strToAppend;
+    }
+
+
+    function removeStart(n) {
+
+        str = str.slice(n)
+    }
+
+
+    function removeEnd(n) {
+
+        str = str.slice(0, -n);
+    }
+
+    function print() {
+        console.log(str);
+    }
 
     return {
         append,
@@ -16,27 +37,6 @@ function solution(){
         removeEnd,
         print
     };
-    function append(strToAppend){
-        str += strToAppend;
-    }
-
-
-    function removeStart(n){
-
-        str = str.slice(n)
-    }
-
-
-    function removeEnd(n){
-
-        str = str.slice(0, -n);
-    }
-
-    function print(){
-        console.log(str);
-    }
-
-
 }
 
 
