@@ -14,10 +14,10 @@
 // Submit only the solve function.
 
 
-function areaVolCalc(area, vol, dataAsJSON){
+function areaVolCalc(area, vol, dataAsJSON) {
     const figures = JSON.parse(dataAsJSON);
     const result = [];
-    for(let figure of figures){
+    for (let figure of figures) {
         const objArea = area.call(figure);
         const objVolume = vol.call(figure)
         const output = {
@@ -44,6 +44,6 @@ const example1 = `[
     {"x":"7","y":"7","z":"10"},
     {"x":"5","y":"2","z":"10"}
     ]`;
-    
+
 console.log(areaVolCalc(area, vol, example1));
 
