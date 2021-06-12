@@ -1,6 +1,9 @@
-import { html, render } from '../../node_modules/lit-html/lit-html.js'
+import { html } from '../../node_modules/lit-html/lit-html.js'
+import { getFurniture } from '../api/data.js';
+import {itemTemplate} from './common/item.js'
 
-const dashBoardTemplate = () => html`
+
+const dashBoardTemplate = (data) => html`
         <div class="row space-top">
             <div class="col-md-12">
                 <h1>Welcome to Furniture System</h1>
@@ -8,53 +11,12 @@ const dashBoardTemplate = () => html`
             </div>
         </div>
         <div class="row space-top">
-            <div class="col-md-4">
-                <div class="card text-white bg-primary">
-                    <div class="card-body">
-                        <img src="./images/table.png" />
-                        <p>Description here</p>
-                        <footer>
-                            <p>Price: <span>235 $</span></p>
-                        </footer>
-                        <div>
-                            <a href="#" class="btn btn-info">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-white bg-primary">
-                    <div class="card-body">
-                        <img src="./images/sofa.jpg" />
-                        <p>Description here</p>
-                        <footer>
-                            <p>Price: <span>1200 $</span></p>
-                        </footer>
-                        <div>
-                            <a href="#" class="btn btn-info">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-white bg-primary">
-                    <div class="card-body">
-                        <img src="./images/chair.jpg" />
-                        <p>Description here</p>
-                        <footer>
-                            <p>Price: <span>55 $</span></p>
-                        </footer>
-                        <div>
-                            <a href="#" class="btn btn-info">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        ${data.map(itemTemplate)}
         </div>`;
 
 
-
 export async function dashboardPage(ctx) {
+    const data = await getFurniture();
 
-    ctx.render(dashBoardTemplate());
+    ctx.render(dashBoardTemplate(data));
 }
