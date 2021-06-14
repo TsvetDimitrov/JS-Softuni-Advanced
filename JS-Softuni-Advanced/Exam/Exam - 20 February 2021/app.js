@@ -8,7 +8,8 @@ function solve() {
       const content = document.getElementById('content');
 
 
-      // I have been 2 hours on this task because of this stupid. If you are reading this, please read your taks description carefully and do not improvise
+      // I have been 2 hours on this task because of this stupid. IF statement and if you are reading this, 
+      // please read your taks description carefully and do not improvise
       // if (author.value == '' || title.value == '' || category.value == '' || content.value == '') {
       //    return;
       // }
