@@ -7,7 +7,6 @@ function solveClasses() {
             this.tasks = [];
             this.experience = 0;
         }
-
         addTask(id, taskName, priority) {
             let task = { id, taskName, priority };
             if (priority == 'high') {
@@ -17,9 +16,7 @@ function solveClasses() {
             }
 
             return `Task id ${id}, with ${priority} priority, has been added.`;
-
         }
-
         doTask() {
             if (this.tasks.length == 0) {
                 return `${this.firstName}, you have finished all your tasks. You can rest now.`;
@@ -35,19 +32,14 @@ function solveClasses() {
         reviewTasks() {
             let result = [`Tasks, that need to be completed:`,];
             if (this.tasks.length > 0) {
-                
+
                 this.tasks.forEach((t) => {
                     result.push(`${t.id}: ${t.taskName} - ${t.priority}`);
 
                 });
                 return result.join('\n');
             }
-
-
-
         }
-
-
     }
     class Junior extends Developer {
         constructor(firstName, lastName, bonus, experience) {
@@ -68,8 +60,6 @@ function solveClasses() {
             this.experience = Number(experience) + 5;
             this.baseSalary = 1000 + Number(bonus);
         }
-
-
         changeTaskPriority(taskId) {
             let task = this.tasks.find((t) => t.id === taskId);
             let index = this.tasks.indexOf(task);
@@ -81,7 +71,7 @@ function solveClasses() {
                 task.priority = 'high';
                 this.tasks.unshift(task);
             }
-        
+
             return task;
         }
     }
