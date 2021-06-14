@@ -23,14 +23,45 @@ const editTemplate = (team, onSubmit, errorMessage) => html`
 export async function editPage(ctx) {
     const teamId = ctx.params.id;
     ctx.render(until(populateTemplate(), loaderTemplate()));
-
-    async function onSubmit(event) {
-        event.preventDefault();
-    }
-
     async function populateTemplate() {
         const team = await getTeamById(teamId);
-        return editTemplate(team, onSubmit)
+        return editTemplate(team, onSubmit);
+
+
+        async function onSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const logo = formData.get('logoUrl');
+            const description = formData.get('description');
+            [...event.target.querySelectorAll('input')].forEach(i => i.disabled = true);
+
+
+            try {
+                if (name.length < 4) {
+                    throw new Error('Team name must be at least 4 characters long!');
+                }
+                if (description.length < 10) {
+                    throw new Error('Description must be atleast 10 characters long!');
+                }
+                if (logo == '') {
+                    throw new Error('Team logo is required!');
+                }
+
+
+                await editTeam(teamId, { name, description, logo });
+
+                event.target.reset();
+                ctx.page.redirect('/details/' + team._id);
+            } catch (error) {
+                ctx.render(editTemplate(team, onSubmit, error.message));
+            } finally {
+                [...event.target.querySelectorAll('input')].forEach(i => i.disabled = false);
+
+            }
+        }
     }
 }
+
+
 
