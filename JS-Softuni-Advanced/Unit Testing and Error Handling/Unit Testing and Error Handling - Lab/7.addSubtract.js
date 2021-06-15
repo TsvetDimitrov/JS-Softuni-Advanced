@@ -1,6 +1,16 @@
 
 const { expect } = require('chai');
-const isSymmetric = require('./5.isSymmetric');
+
+
+function createCalculator() {
+    let value = 0;
+    return {
+        add: function(num) { value += Number(num); },
+        subtract: function(num) { value -= Number(num); },
+        get: function() { return value; }
+    }
+}
+
 
 describe('createCalculator', () => {
     it('add number should work', () => {
