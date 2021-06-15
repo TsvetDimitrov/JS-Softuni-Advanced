@@ -1,27 +1,40 @@
-// Write a function that returns an array of Person objects. Use the class from the previous task, create the following instances, 
-// and return them in an array:
+// Write a function that returns an array of Person objects. Use the class from the previous task, 
+// create the following instances, and return them in an array:
+// First Name	Last Name	Age	Email
+// Anna	Simpson	22	anna@yahoo.com
+// SoftUni			
+// Stephan	Johnson	25	
+// Gabriel	Peterson	24	g.p@gmail.com
+// For any empty cells, do not supply a parameter (call the constructor with less parameters).
+// Input / Output
+// There will be no input, the data is static and matches the table above. As output, return an array with Person instances.
+// Submit a function that returns the required output.
 
-class Point {
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
 
-    }
+function getPersons() {
 
-    static distance (a, b){
-        if(a instanceof Point == false || b instanceof Point == false){
-            throw new TypeError('Parameter must be of type Point');
+    class Person {
+        constructor(firstName, lastName, age, email) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.email = email;
+        }
+        static sayHello() {
+            console.log(`Hello`);
         }
 
-        return Math.sqrt((a.x - b.x) **2 + (a.y - b.y) **2);
+        toString() {
+            return `${this.firstName} ${this.lastName} (age: ${this.age}, email: ${this.email})`;
+        }
     }
+
+    let persons = [];
+
+    persons.push(new Person('Anna', 'Simpson', 22, 'anna@yahoo.com'));
+    persons.push(new Person('SoftUni'));
+    persons.push(new Person('Stephan', 'Johnson', 25));
+    persons.push(new Person('Gabriel', 'Peterson', 24, 'g.p@gmail.com'));
+
+    return persons;
 }
-
-
-const p1 = new Point(0, 0);
-const p2 = new Point(4, 3);
-
-
-
-console.log(p1, p2);
-console.log(Point.distance(p1, p2));
