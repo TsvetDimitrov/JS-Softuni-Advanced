@@ -59,8 +59,6 @@ function solve() {
       ol.appendChild(li);
       Array.from(ol.querySelectorAll('li')).sort((a, b) => a.textContent.localeCompare(b.textContent)).forEach(li => ol.appendChild(li));
       section.remove();
-
-
    }
    function el(type, content, addClass) {
       const result = document.createElement(type);
