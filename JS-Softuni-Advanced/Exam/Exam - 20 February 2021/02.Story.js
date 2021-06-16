@@ -166,7 +166,7 @@ class Story {
     }
 
     comment(username, content, id) {
-        if (!id || this._comments.some(c => c.id == id) == false) {
+        if (!id || this._comments.find(c => c.id == id) == undefined) { // OR this._comments.some(c => c.id == id) == false 
             id = this._comments.length + 1;
             const comment = { id, username, content, replies: {} };
             this._comments.push(comment);
