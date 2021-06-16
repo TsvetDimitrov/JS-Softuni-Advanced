@@ -180,7 +180,6 @@ class Story {
         }
     }
 
-
     toString(sortingType) {
         let result = [`Title: ${this.title}`, `Creator: ${this.creator}`, `Likes: ${this._likes.length}`, 'Comments:',];
 
@@ -215,7 +214,6 @@ class Story {
                 return result.join('\n');
             }
         }
-
         return typesToSort[sortingType](this._comments);
     }
 }
