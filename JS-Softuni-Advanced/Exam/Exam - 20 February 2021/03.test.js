@@ -1,6 +1,9 @@
 const numberOperations = require("./03. Number Operations_Resources");
 
 const { expect } = require('chai');
+const { assert } = require('chai');
+
+//Solution with expect.
 describe('Begin Tests', function () {
 
     describe('powNumber test', function () {
@@ -13,7 +16,6 @@ describe('Begin Tests', function () {
             expect(numberOperations.powNumber(2)).to.be.equal(4);
         });
     });
-
 
     describe('number checker function tests', function () {
         it('String input should throw an error! ', function () {
@@ -36,7 +38,6 @@ describe('Begin Tests', function () {
             expect(numberOperations.numberChecker(1000)).to.be.equal('The number is greater or equal to 100!');
             expect(numberOperations.numberChecker(4)).to.be.equal('The number is lower than 100!');
             expect(numberOperations.numberChecker(-5)).to.be.equal('The number is lower than 100!');
-
         });
     });
 
@@ -64,7 +65,74 @@ describe('Begin Tests', function () {
             const arr1 = [];
             const arr2 = [];
             expect(numberOperations.sumArrays(arr1, arr2)).to.deep.equal([]);
+        });
+    });
+});
 
+
+//Solution with assert.
+describe('Begin Tests', function () {
+
+    describe('powNumber test', function () {
+        it('test with 5', function () {
+            let number = 5;
+
+            assert.equal(numberOperations.powNumber(number), 25);
+        });
+
+        it('test with 2', function () {
+            assert.equal(numberOperations.powNumber(2), 4);
+        });
+    });
+
+    describe('number checker function tests', function () {
+        it('String input should throw an error! ', function () {
+            let str = 'Test';
+            assert.throw(() => numberOperations.numberChecker(str), 'The input is not a number!');
+        });
+
+        it('Number input under 100 should be executed correctly border situation', function () {
+            let num = 99;
+            assert.equal(numberOperations.numberChecker(num), 'The number is lower than 100!');
+        });
+
+        it('Number input over 100 should be executed correctly border situatin', function () {
+            let num = 100;
+            assert.equal(numberOperations.numberChecker(num), 'The number is greater or equal to 100!');
+        });
+
+        it('Fill up cases', function () {
+            assert.equal(numberOperations.numberChecker(101), 'The number is greater or equal to 100!');
+            assert.equal(numberOperations.numberChecker(1000), 'The number is greater or equal to 100!');
+            assert.equal(numberOperations.numberChecker(4), 'The number is lower than 100!');
+            assert.equal(numberOperations.numberChecker(-5), 'The number is lower than 100!');
+        });
+    });
+
+    describe('sumArrays Tests', function () {
+        it('Test with different length arrays', function () {
+            let array1 = [1, 2, 3];
+            let array2 = [2, 4, 5, 6];
+
+            assert.deepEqual(numberOperations.sumArrays(array1, array2), [3, 6, 8, 6]);
+        });
+
+        it('Test with equal length arrays', function () {
+            const array1 = [2, 3];
+            const array2 = [5, 4];
+            assert.deepEqual(numberOperations.sumArrays(array1, array2), [7, 7]);
+        });
+
+        it('Test with length 1', function () {
+            const array1 = [5];
+            const array2 = [10];
+            assert.deepEqual(numberOperations.sumArrays(array1, array2), [15]);
+        });
+
+        it('Tests with empty arrays', function () {
+            const arr1 = [];
+            const arr2 = [];
+            assert.deepEqual(numberOperations.sumArrays(arr1, arr2), []);
         });
     });
 });
