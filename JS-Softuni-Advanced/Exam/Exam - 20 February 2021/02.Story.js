@@ -194,20 +194,20 @@ class Story {
                 return result.join('\n');
             },
             'desc': function (comments) {
-                const sorted = comments.sort((a, b) => b.id - a.id).forEach((o) => {
+                comments.sort((a, b) => b.id - a.id).forEach((o) => {
                     result.push(`-- ${o.id}. ${o.username}: ${o.content}`);
 
-                    const sortedReplies = Object.values(o.replies).sort((a, b) => b.id - a.id).forEach(r => {
+                    Object.values(o.replies).sort((a, b) => b.id - a.id).forEach(r => {
                         result.push(`--- ${r.id}. ${r.username}: ${r.content}`);
                     });
                 });
                 return result.join('\n');
             },
             'username': function (comments) {
-                const sorted = comments.sort((a, b) => a.username.localeCompare(b.username)).forEach(o => {
+                comments.sort((a, b) => a.username.localeCompare(b.username)).forEach(o => {
                     result.push(`-- ${o.id}. ${o.username}: ${o.content}`);
 
-                    const sortedReplies = Object.values(o.replies).sort((a, b) => a.username.localeCompare(b.username)).forEach(r => {
+                    Object.values(o.replies).sort((a, b) => a.username.localeCompare(b.username)).forEach(r => {
                         result.push(`--- ${r.id}. ${r.username}: ${r.content}`);
                     });
                 });
