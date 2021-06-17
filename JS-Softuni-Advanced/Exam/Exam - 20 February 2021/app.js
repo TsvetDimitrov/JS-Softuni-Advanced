@@ -1,4 +1,6 @@
 function solve() {
+   // using local state is always a good practice. 
+   let olState = [];
    document.querySelector('.btn').addEventListener('click', (e) => {
       e.preventDefault();
       const author = document.getElementById('creator');
@@ -52,11 +54,21 @@ function solve() {
       section.parentNode.removeChild(section);
       let title = section.querySelector('h1');
       const ol = document.querySelector('ol');
-      let li = el('li', title.textContent);
 
+      ol.innerHTML = '';
+      olState.push(title.textContent)
+      olState.sort((a, b) => a.localeCompare(b)).forEach((element) => {
+         let li = el('li', element);
+         ol.appendChild(li);
+      });
+
+      section.remove();
+      //Or use this. 
+      /*
       ol.appendChild(li);
       Array.from(ol.querySelectorAll('li')).sort((a, b) => a.textContent.localeCompare(b.textContent)).forEach(li => ol.appendChild(li));
       section.remove();
+      */
    }
    function el(type, content, addClass) {
       const result = document.createElement(type);
@@ -88,7 +100,7 @@ function solve() {
       e.preventDefault();
 
       const article = el('article');
-      // We take the input values after the function invocation 
+      // We take the input values after the function invocation
       const h1 = el('h1', title.value);
       const p = el('p', 'Category:');
       const strong = el('strong', category.value);
@@ -118,7 +130,7 @@ function solve() {
 
    function archive(e){
       const section = e.target.parentNode.parentNode;
-      const textToAppend = section.querySelector('h1').textContent;  
+      const textToAppend = section.querySelector('h1').textContent;
       const ol = document.querySelector('ol');
       let li = el('li', textToAppend);
       ol.appendChild(li);
