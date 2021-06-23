@@ -1,4 +1,4 @@
-let { Repository } = require("./solution.js");
+let { Repository } = require("../solution.js");
 const { expect } = require('chai');
 const { beforeEach } = require('mocha');
 
@@ -125,7 +125,7 @@ describe("Tests …", function () {
                 age: 20,
                 birthday: new Date(1998, 0, 7)
             }
-
+            
             entity2 = { name: "stamat2", age: 5, birthday: new Date(1998, 0, 7) };
             entity3 = { name: "stamat3", age: 5, birthday: new Date(1998, 0, 7) };
             repo.add(testObj);
@@ -298,7 +298,6 @@ describe("Tests …", function () {
             expect(repo.data.size).to.be.equal(2);
             expect(repo.getId(0)).to.deep.equal(entity);
             expect(repo.getId(2)).to.deep.equal(test);
-
         });
     });
 
@@ -336,7 +335,6 @@ describe("Tests …", function () {
             };
             repo = new Repository(props);
 
-
             let entity2 = {
                 name: 'Pesho',
                 age: 20,
@@ -355,13 +353,11 @@ describe("Tests …", function () {
             };
             repo = new Repository(props);
 
-
             let entity2 = {
                 name: 'Pesho',
                 age: 20,
                 birthday: new Date(1999, 0, 7)
             }
-
             expect(repo.count).to.deep.equal(0);
         });
     });
