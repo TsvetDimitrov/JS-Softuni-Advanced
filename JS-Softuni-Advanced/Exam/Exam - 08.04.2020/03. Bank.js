@@ -1,3 +1,5 @@
+
+
 class Bank {
     constructor(bankName) {
         this._bankName = bankName;
@@ -78,6 +80,75 @@ class Bank {
     }
 }
 
+
+
+// this solution is optimized rather that the previous one. 
+class Bank {
+    constructor(bankName) {
+        this._bankName = bankName;
+        this.allCustomers = [];
+    }
+    newCustomer(customer) {
+        let client = this.allCustomers.find((c) => c.personalId == customer.personalId);
+        if (client) {
+            throw new Error(`${customer.firstName} ${customer.lastName} is already our customer!`);
+        }
+
+        this.allCustomers.push(customer);
+        return customer;
+    }
+    depositMoney(personalId, amount) {
+        let client = this.allCustomers.find((c) => c.personalId == personalId);
+        if (client == undefined) {
+            throw new Error(`We have no customer with this ID!`);
+        }
+        if (!client.hasOwnProperty('totalMoney')) {
+            client.totalMoney = amount;
+        } else {
+            client.totalMoney += amount;
+        }
+
+        if (!client.hasOwnProperty('transactions')) {
+            client.transactions = [];
+            client.transactions.push(`Svetlin Nakov made deposit of ${amount}$!`);
+        } else {
+            client.transactions.push(`Svetlin Nakov made deposit of ${amount}$!`);
+        }
+
+        return `${client.totalMoney}$`;
+    }
+
+    withdrawMoney(personalId, amount) {
+        let client = this.allCustomers.find((c) => c.personalId == personalId);
+        if (client == undefined) {
+            throw new Error(`We have no customer with this ID!`);
+        }
+
+        if (client.totalMoney < amount) {
+            throw new Error(`${client.firstName} ${client.lastName} does not have enough money to withdraw that amount!`);
+        }
+
+        client.transactions.push(`Svetlin Nakov withdrew ${amount}$!`);
+        client.totalMoney -= amount;
+        return `${client.totalMoney}$`;
+    }
+
+    customerInfo(personalId) {
+        let client = this.allCustomers.find((c) => c.personalId == personalId);
+        if (client == undefined) {
+            throw new Error(`We have no customer with this ID!`);
+        }
+
+        let result = [`Bank name: ${this._bankName}`, `Customer name: ${client.firstName} ${client.lastName}`, `Customer ID: ${client.personalId}`,
+        `Total Money: ${client.totalMoney}$`, `Transactions:`];
+
+        for (let i = client.transactions.length; i > 0; i--) {
+            result.push(`${i}. ${client.transactions[i - 1]}`);
+        }
+
+        return result.join('\n');
+    }
+}
 
 
 
