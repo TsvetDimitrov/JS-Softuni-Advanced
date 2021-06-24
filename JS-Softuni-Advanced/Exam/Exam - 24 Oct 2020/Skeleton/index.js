@@ -107,5 +107,10 @@ function solve() {
         } // end appendEl;
         return element;
     } // end el;
-
 };
+
+
+
+
+
+  
