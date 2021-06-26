@@ -11,12 +11,10 @@ function addDestination() {
 
     const destList = document.getElementById('destinationsList');
 
-    // console.log(cityInput.value, countryInput.value, seasonInput.value);
 
     if (cityInput.value === '' || countryInput.value === '' || seasonInput.value === '') {
         return;
     }
-    console.log(seasonInput.value);
     let season;
     if (seasonInput.value === 'summer') {
         season = seasonInput.value = 'Summer';
