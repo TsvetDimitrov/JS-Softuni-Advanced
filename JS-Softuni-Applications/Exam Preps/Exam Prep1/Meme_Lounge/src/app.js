@@ -2,7 +2,7 @@ import { render } from '../node_modules/lit-html/lit-html.js';
 import page from '../node_modules/page/page.mjs';
 
 
-import {logout as apiLogout} from './api/data.js'
+import { logout as apiLogout } from './api/data.js'
 import { catalogPage } from './views/catalog.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
@@ -11,7 +11,7 @@ import { homePage } from './views/home.js';
 import { loginPage } from './views/login.js';
 import { profilePage } from './views/profile.js';
 import { registerPage } from './views/register.js';
-
+import { notify } from './notification.js'
 
 const main = document.querySelector('main');
 document.getElementById('logoutBtn').addEventListener('click', logout)
@@ -53,7 +53,7 @@ function setUserNav() {
 }
 
 
-async function logout(){
+async function logout() {
     await apiLogout();
     setUserNav();
     page.redirect('/');

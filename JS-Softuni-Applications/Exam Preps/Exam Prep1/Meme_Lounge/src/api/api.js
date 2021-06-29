@@ -19,7 +19,7 @@ async function request(url, options) {
             return response;
         }
     } catch (error) {
-        alert(error.message);
+        console.error(error.message);
         throw error;
     }
 }
