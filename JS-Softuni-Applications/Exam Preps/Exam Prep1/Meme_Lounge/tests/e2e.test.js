@@ -319,7 +319,7 @@ describe('E2E tests', function () {
         });
     });
 
-    describe('CRUD [ 40 Points ]', () => {
+    describe.only('CRUD [ 40 Points ]', () => {
         const email = 'ivan@mail.bg';
         const password = '345321';
 
@@ -390,7 +390,7 @@ describe('E2E tests', function () {
             expect(postData.imageUrl).to.equal(mock.imageUrl);
         });
 
-        it.only('non-author does NOT see delete and edit buttons [ 2.5 Points ]', async () => {
+        it('non-author does NOT see delete and edit buttons [ 2.5 Points ]', async () => {
             const mock = Object.assign({}, mockData[4], { _ownerId: '0002' }); // Replace mock with non-owned object
 
             await page.goto(host);
@@ -407,7 +407,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('text="Edit"')).to.be.false;
         });
 
-        it.only('author sees delete and edit buttons [ 2.5 Points ]', async () => {
+        it('author sees delete and edit buttons [ 2.5 Points ]', async () => {
             const mock = mockData[5];
             await page.waitForTimeout(300);
 
