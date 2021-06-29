@@ -63,17 +63,19 @@ export async function login(email, password) {
     const result = await post(settings.host + '/users/login', { email, password });
 
     sessionStorage.setItem('username', result.username);
+    sessionStorage.setItem('email', result.email);
     sessionStorage.setItem('authToken', result.accessToken);
     sessionStorage.setItem('userId', result._id);
     return result;
 }
 
-export async function register(email, username, password) {
-    const result = await post(settings.host + '/users/register', { email, username, password });
+export async function register(username, email, password, gender) {
+    const result = await post(settings.host + '/users/register', { username, email, password, gender });
 
     sessionStorage.setItem('username', result.username);
     sessionStorage.setItem('authToken', result.accessToken);
     sessionStorage.setItem('userId', result._id);
+    sessionStorage.setItem('userGender', result.gender);
     return result;
 }
 
@@ -83,5 +85,6 @@ export async function logout() {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('authToken');
     sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('email');
     return result;
 }
