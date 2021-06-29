@@ -74,7 +74,7 @@ describe('E2E tests', function () {
         await page.close();
         await context.close();
     });
-    describe.only('Authentication [ 20 Points ]', () => {
+    describe('Authentication [ 20 Points ]', () => {
         it('register does not work with empty fields [ 5 Points ]', async () => {
             const endpoint = '**' + endpoints.register;
             let called = false;
@@ -192,7 +192,7 @@ describe('E2E tests', function () {
         });
     });
 
-    describe('Navigation bar [ 5 Points ]', () => {
+    describe.only('Navigation bar [ 5 Points ]', () => {
         const email = 'ivan@mail.bg';
         const password = '345321';
 
@@ -247,7 +247,7 @@ describe('E2E tests', function () {
         });
     });
 
-    describe('Catalog [ 25 Points ]', () => {
+    describe.only('Catalog [ 25 Points ]', () => {
         it('loads static home page [ 5 Points ]', async () => {
             await page.goto(host);
 
