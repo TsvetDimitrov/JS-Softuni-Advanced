@@ -10,7 +10,7 @@ export const logout = api.logout;
 
 export async function getAllListings(page = 1) {
     // for pagination video i have stopped in here 3:17:09
-    return await api.get(host + `/data/cars?sortBy=_createdOn%20desc&offset=${(page-1) * 3}&pageSize=3`);
+    return await api.get(host + '/data/cars?sortBy=_createdOn%20desc'); // ADD to the end for pagination- &offset=${(page-1) * 3}&pageSize=3
 }
 export async function getCollectionSize() {
     return await api.get(host + '/data/cars?count');

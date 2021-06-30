@@ -4,7 +4,7 @@ const { expect } = require('chai');
 
 const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
 const interval = 300;
-const DEBUG = false;
+const DEBUG = true;
 const slowMo = 500;
 
 const mockData = require('./mock-data.json');
@@ -202,7 +202,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('#welcome-container >> text=Listings')).to.be.true;
         });
 
-        it('show all listings [ 10 Points ]', async () => {
+        it.only('show all listings [ 10 Points ]', async () => {
             await page.goto(host);
             await page.waitForTimeout(interval);
             await page.click('text=All Listings');
@@ -420,7 +420,7 @@ describe('E2E tests', function () {
             expect(inputs[5]).to.contains(data.price);
         });
 
-        it.only('edit makes correct API call for logged in user [ 5 Points ]', async () => {
+        it('edit makes correct API call for logged in user [ 5 Points ]', async () => {
             const data = mockData.catalog[0];
             const { get, put } = await handle(endpoints.delete(data._id));
             get(data);
