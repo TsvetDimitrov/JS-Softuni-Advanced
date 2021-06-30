@@ -191,7 +191,7 @@ describe('E2E tests', function () {
         });
     });
 
-    describe('Catalog [ 25 Points ]', () => {
+    describe.only('Catalog [ 25 Points ]', () => {
         it('loads static home page [ 5 Points ]', async () => {
             await page.goto(host);
             await page.waitForTimeout(interval);
@@ -202,7 +202,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('#welcome-container >> text=Listings')).to.be.true;
         });
 
-        it('show all listings [ 10 Points ]', async () => {
+        it.only('show all listings [ 10 Points ]', async () => {
             await page.goto(host);
             await page.waitForTimeout(interval);
             await page.click('text=All Listings');
