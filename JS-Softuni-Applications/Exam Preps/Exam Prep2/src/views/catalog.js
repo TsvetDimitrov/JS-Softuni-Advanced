@@ -23,11 +23,12 @@ const catalogTemplate = (cars, page, pages) => html`<section id="car-listings">
 
 
 export async function catalogPage(ctx) {
-    const page = Number(ctx.querystring.split('=')[1]) || 1;
+ //   const page = Number(ctx.querystring.split('=')[1]) || 1;
     const cars = await getAllListings();
-    const count = await getCollectionSize();
-    const pages = Math.ceil(count / 3);
-    ctx.render(catalogTemplate(cars, page, pages));
+  //  const count = await getCollectionSize();
+  //  const pages = Math.ceil(count / 3);
+    ctx.render(catalogTemplate(cars));
+    //ctx.render(catalogTemplate(cars, page, pages)); FOR PAGINATION
 }
 
 
