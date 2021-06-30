@@ -8,8 +8,12 @@ export const register = api.register;
 export const logout = api.logout;
 
 
-export async function getAllListings() {
+export async function getAllListings(page = 1) {
+    // for pagination video i have stopped in here 3:17:09
     return await api.get(host + '/data/cars?sortBy=_createdOn%20desc');
+}
+export async function getCollectionSize() {
+    return await api.get(host + '/data/cars?count');
 }
 
 export async function getListingById(id){
@@ -33,4 +37,8 @@ export async function deleteListing(id) {
 
 export async function getMyListings(userId) {
     return await api.get(host + `/data/cars?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+}
+
+export async function search(query){
+    return await api.get(host + `/data/cars?where=year%3D${query}`);
 }
