@@ -27,7 +27,7 @@ export async function updateListing(id, listing){
 
 
 export async function deleteListing(id) {
-    return await api.del(host + '/data/cars?/' + id);
+    return await api.del(host + '/data/cars/' + id);
 }
 
 

@@ -1,6 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-
-import { deleteListing, getListingById } from '../api/data.js';
+import { createListing } from '../api/data.js';
 
 
 const createTemplate = (onSubmit) => html`<section id="create-listing">
@@ -59,6 +58,8 @@ export async function createPage(ctx) {
             return alert('All fields are required!');
         }
 
-        
+        await createListing(car);
+        ctx.page.redirect('/all-listings');
+
     }
 }
