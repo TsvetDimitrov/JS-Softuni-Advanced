@@ -50,16 +50,17 @@ export async function createPage(ctx) {
             price: Number(formData.get('price')),
         }
 
-        if(Number.isNaN(car.year) || Number.isNaN(car.price)){
+        if (Number.isNaN(car.year) || Number.isNaN(car.price)) {
             return alert('Year and price must be positive numbers!');
         }
 
-        if (Object.values(car).some(x => x)) {
+        if (Object.values(car).some(x => !x)) {
             return alert('All fields are required!');
         }
 
         await createListing(car);
-        ctx.page.redirect('/all-listings');
+        event.target.reset();
 
+        ctx.page.redirect('/all-listings');
     }
 }

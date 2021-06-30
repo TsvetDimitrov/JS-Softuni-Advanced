@@ -191,7 +191,7 @@ describe('E2E tests', function () {
         });
     });
 
-    describe.only('Catalog [ 25 Points ]', () => {
+    describe('Catalog [ 25 Points ]', () => {
         it('loads static home page [ 5 Points ]', async () => {
             await page.goto(host);
             await page.waitForTimeout(interval);
@@ -420,7 +420,7 @@ describe('E2E tests', function () {
             expect(inputs[5]).to.contains(data.price);
         });
 
-        it('edit makes correct API call for logged in user [ 5 Points ]', async () => {
+        it.only('edit makes correct API call for logged in user [ 5 Points ]', async () => {
             const data = mockData.catalog[0];
             const { get, put } = await handle(endpoints.delete(data._id));
             get(data);

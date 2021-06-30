@@ -8,6 +8,10 @@ import {logout as apiLogout} from './api/api.js'
 import { loginPage, registerPage } from './views/auth.js';
 import { catalogPage } from './views/catalog.js';
 import { detailsPage } from './views/details.js';
+import { createPage } from './views/create.js';
+import { editPage } from './views/edit.js';
+import { profilePage } from './views/profile.js';
+import { searchPage } from './views/search.js';
 api.settings.host = 'http://localhost:3030';
 window.api = api;
 const main = document.getElementById('site-content');
@@ -19,6 +23,10 @@ page('/login', decorateContext, loginPage);
 page('/register', decorateContext, registerPage);
 page('/all-listings', decorateContext, catalogPage);
 page('/details/:id', decorateContext, detailsPage);
+page('/create', decorateContext, createPage);
+page('/edit/:id', decorateContext, editPage);
+page('/my-listings', decorateContext, profilePage);
+page('/search', decorateContext, searchPage);
 
 page.start();
 

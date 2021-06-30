@@ -1,27 +1,28 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 
 
-import { getAllListings } from '../api/data.js';
+import { getAllListings, getCollectionSize} from '../api/data.js';
 import { carTemplate } from './common/car.js';
 
-const catalogTemplate = (cars) => html`<section id="car-listings">
+const catalogTemplate = (cars, page, pages) => html`<section id="car-listings">
     <h1>Car Listings</h1>
     <div class="listings">
 
-        <!-- Display all records -->
-
+    <div>Page ${page} / ${pages}</div>
         ${cars.length == 0 ? html`<p class="no-cars">No cars in database.</p>` :
         cars.map(carTemplate)}
 
 
-        <!-- Display if there are no records -->
     </div>
 </section>`;
 
 
 export async function catalogPage(ctx) {
+    const page = Number(ctx.querystring.split('=')[1]) || 1;
     const cars = await getAllListings();
-    ctx.render(catalogTemplate(cars));
+   const count = await getCollectionSize();
+   const pages = Math.ceil(count / 3);
+    ctx.render(catalogTemplate(cars, page, pages));
 }
 
 
