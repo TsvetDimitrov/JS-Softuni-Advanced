@@ -2,7 +2,6 @@ function solve() {
     const span = document.querySelector('span[class="info"]');
     const departBtn = document.getElementById('depart');
     const arriveBtn = document.getElementById('arrive');
-    console.log(span);
     let stop = {
         next: 'depot'
     }
