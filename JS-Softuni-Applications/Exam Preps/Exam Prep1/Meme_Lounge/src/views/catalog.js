@@ -6,8 +6,8 @@ const catalogTemplate = (memes) => html`
 <section id="meme-feed">
     <h1>All Memes</h1>
     <div id="memes">
-    ${memes.length == 0 ? html`<p class="no-memes">
-        No memes in database.
+        ${memes.length == 0 ? html`<p class="no-memes">
+            No memes in database.
         </p>`: memes.map(memeTemplate)}
     </div>
 </section>
