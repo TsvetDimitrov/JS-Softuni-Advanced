@@ -2,9 +2,10 @@ import * as api from './api/api.js';
 import { getUserData } from './utility.js'
 import { render } from '../node_modules/lit-html/lit-html.js';
 import page from '../node_modules/page/page.mjs';
-import { homePage } from './views/home.js';
-
 import {logout as apiLogout} from './api/api.js'
+
+
+import { homePage } from './views/home.js';
 import { loginPage, registerPage } from './views/auth.js';
 import { catalogPage } from './views/catalog.js';
 import { detailsPage } from './views/details.js';
