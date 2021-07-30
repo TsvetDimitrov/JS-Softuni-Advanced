@@ -5,10 +5,15 @@ import { getUserData } from './utility.js';
 import { logout as apiLogout } from './api/api.js';
 
 
-import {homePage} from './views/home.js';
+import { homePage } from './views/home.js';
 import { registerPage } from './views/register.js';
 import { loginPage } from './views/login.js';
 import { listingsPage } from './views/all-listings.js';
+import { createListingPage } from './views/create.js';
+import { detailsPage } from './views/details.js';
+import { editPage } from './views/edit.js';
+import { myListingsPage } from './views/my-listings.js';
+import { searchPage } from './views/search.js';
 
 
 
@@ -21,6 +26,12 @@ page('/', decorateContext, homePage);
 page('/register', decorateContext, registerPage);
 page('/login', decorateContext, loginPage);
 page('/all-listings', decorateContext, listingsPage);
+page('/create', decorateContext, createListingPage);
+page('/details/:id', decorateContext, detailsPage);
+page('/edit/:id', decorateContext, editPage);
+page('/my-listings', decorateContext, myListingsPage);
+page('/search', decorateContext, searchPage);
+
 
 page.start();
 
