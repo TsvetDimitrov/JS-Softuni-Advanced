@@ -9,6 +9,3 @@ export const logout = api.logout;
 
 
 //Application-specific requests
-export async function getAllMovies() {
-    await api.get(host + '/data/movies');
-}

@@ -1,44 +1,39 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { successBox, errorBox } from '../notification.js';
 import { login } from '../api/data.js';
 
 const loginTemplate = (onSubmit) => html`
-        <form @submit=${onSubmit} class="text-center border border-light p-5" action="" method="">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" placeholder="Email" name="email" value="">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="Password" name="password" value="">
-            </div>
-        
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+        <section id="login">
+            <form @submit=${onSubmit} id="login-form">
+                <div class="container">
+                    <h1>Login</h1>
+                    <label for="email">Email</label>
+                    <input id="email" placeholder="Enter Email" name="email" type="text">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" placeholder="Enter Password" name="password">
+                    <input type="submit" class="registerbtn button" value="Login">
+                    <div class="container signin">
+                        <p>Dont have an account?<a href="/register">Sign up</a>.</p>
+                    </div>
+                </div>
+            </form>
+        </section>
+
 `;
 
 
 export async function loginPage(ctx) {
     ctx.render(loginTemplate(onSubmit));
-
-    async function onSubmit(e) {
+    async function onSubmit(e){
         e.preventDefault();
         const formData = new FormData(e.target);
         const email = formData.get('email').trim();
         const password = formData.get('password').trim();
-        try {
-            if (!email || !password) {
-                throw new Error('All fields are required!');
-            }
-            await login(email, password);
-            successBox('Login successful.');
-            ctx.setUserNav();
-            ctx.page.redirect('/');
 
-        } catch (err) {
-            errorBox(err.message);
+        if(!email || !password){
+            return alert('All fields are required!');
         }
-
-
+        await login(email, password);
+        ctx.setUserNav();
+        ctx.page.redirect('/home')
     }
 }
