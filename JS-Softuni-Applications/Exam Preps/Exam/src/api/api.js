@@ -65,6 +65,9 @@ export async function login(email, password) {
     sessionStorage.setItem('email', result.email);
     sessionStorage.setItem('authToken', result.accessToken);
     sessionStorage.setItem('userId', result._id);
+    sessionStorage.setItem('username', result.username);
+    sessionStorage.setItem('userGender', result.gender);
+
     return result;
 }
 
