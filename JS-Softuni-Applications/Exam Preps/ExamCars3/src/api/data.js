@@ -20,3 +20,19 @@ export async function createListing(obj) {
 export async function getCarById(id) {
     return await api.get(host + `/data/cars/` + id);
 }
+
+export async function deleteCar(id) {
+    return await api.del(host + `/data/cars/` + id);
+}
+
+export async function editCarById(id, obj) {
+    return await api.put(host + `/data/cars/` + id, obj);
+}
+
+export async function getMyListings(userId) {
+    return await api.get(host + `/data/cars?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+}
+
+export async function getAllListingsByYear(query) {
+    return await api.get(host + `/data/cars?where=year%3D${query}`);
+}

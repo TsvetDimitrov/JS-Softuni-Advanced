@@ -53,6 +53,10 @@ export async function createPage(ctx) {
         const imageUrl = formData.get('imageUrl').trim();
         const price = Number(formData.get('price'));
 
+        if(!brand || !model || !description || !year || !imageUrl || !price){
+            return alert('All fields are required!');
+        }
+
         await createListing({brand, model, description, year, imageUrl, price});
         e.target.reset();
         ctx.page.redirect('/catalog');
