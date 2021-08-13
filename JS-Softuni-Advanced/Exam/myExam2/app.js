@@ -6,9 +6,6 @@ function solve() {
     let descriptionInput = document.getElementById('description');
     let priceInput = document.getElementById('price');
     const listFurnitures = document.getElementById('furniture-list');
-    
-    const totalPrice = document.querySelector('.total-price');
-
 
     document.getElementById('add').addEventListener('click', addFurniture);
 
@@ -80,14 +77,10 @@ function solve() {
             const secondTr = firstTr.nextSibling;
 
             const price = firstTr.querySelectorAll('td')[1].textContent;
-            console.log(price);
 
             let totalPrice = document.querySelector('.total-price');
-            console.log(totalPrice);
             let sum = Number(price) + Number(totalPrice.textContent);
-            console.log(sum);
             totalPrice.textContent = sum.toFixed(2);
-            console.log(totalPrice);
             
             firstTr.remove();
             secondTr.remove();
